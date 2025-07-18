@@ -51,7 +51,6 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 - **Calendar Integration:** Google Calendar API
 - **Tool Framework:** LangChain
 - **PDF Parsing:** PyMuPDF
-- **Auth:** OAuth 2.0
 
 ---
 
