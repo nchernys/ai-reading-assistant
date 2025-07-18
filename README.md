@@ -49,8 +49,8 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 - **Backend:** [FastAPI](https://fastapi.tiangolo.com/)
 - **AI:** [Gemini 2.0 Flash](https://ai.google.dev/)
 - **Calendar Integration:** Google Calendar API
-- **Tool Framework:** LangChain
 - **PDF Parsing:** PyMuPDF
+- **Tool Framework:** LangChain
 
 ---
 
