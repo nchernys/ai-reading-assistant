@@ -11,6 +11,8 @@ This app allows users to upload a PDF and choose from intelligent AI-powered act
 
 ---
 
+## Demo Video:
+
 [![Demo](./demo-preview.png)](https://www.loom.com/share/8fd1cf3eb93f4627a2c95984a55c0d8d?sid=800b2159-dd4c-4c7f-9b09-af700ac7feb8)
 
 ## Tech Stack
