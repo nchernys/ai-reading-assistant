@@ -34,9 +34,11 @@ export default function Schedule() {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-      setLoading(false);
-      setResponse(result.response.output);
+      if (response.ok) {
+        const result = await response.json();
+        setLoading(false);
+        setResponse(result.response.output);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
