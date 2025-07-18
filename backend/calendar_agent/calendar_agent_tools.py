@@ -13,7 +13,6 @@ import requests
 from llm_config import llm
 import json
 
-# Scopes define what the app can access
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 def get_calendar_service():
@@ -29,7 +28,6 @@ def get_calendar_service():
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
 
-    # Refresh token if expired (optional)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
@@ -59,10 +57,7 @@ def get_current_year(timezone: str) -> str:
 
 
 def force_local_time(iso_str: str, tz: ZoneInfo) -> datetime:
-    # Parse with dateutil (handles Z or +00:00)
     dt = parser.isoparse(iso_str)
-    
-    # Discard any timezone Duckling gives and force as local
     dt_naive = dt.replace(tzinfo=None)
     return dt_naive.replace(tzinfo=tz)
 
@@ -128,7 +123,6 @@ def get_calendar_events(input: str):
                 start = start_str
                 end = end_str
 
-            # Build the event dictionary
             formatted_events.append({
                 "title": event.get("summary", "No title"),
                 "start": formatted_start,
@@ -157,7 +151,6 @@ def is_slot_available(input: str) -> str:
     tz = ZoneInfo(timezone)
     now = datetime.now(tz)
 
-    # Try to parse datetime from full sentence
     try:
         parsed_dt = parse(input, fuzzy=True, default=now)
         start_dt = parsed_dt.astimezone(tz)
@@ -165,7 +158,6 @@ def is_slot_available(input: str) -> str:
     except Exception as e:
         return f"Sorry, I couldn’t understand the time. Error: {e}"
 
-    # Call your Google Calendar API
     try:
         service = get_calendar_service()
         events = service.events().list(
@@ -206,11 +198,8 @@ def schedule_meeting(input: str):
     description = params.get("description", "")
 
     if not end_time:
-        # Parse start_time string into a datetime object
         start_dt = datetime.fromisoformat(start_time)
-        # Add 1 hour
         end_dt = start_dt + timedelta(hours=1)
-        # Convert back to string in ISO 8601 format
         end_time = end_dt.isoformat()
         
     if not start_time or not end_time or not event_title:
@@ -255,16 +244,13 @@ def delete_meeting(input: str):
     event_title = params.get("event_title")
 
     start_dt = datetime.fromisoformat(start_time)
-    # Add 1 hour
     end_dt = start_dt + timedelta(minutes=90)
-    # Convert back to string in ISO 8601 format
     end_time = end_dt.isoformat()
 
 
     if not start_time or not event_title:
         return "Error: start_time and event_title are required."
 
-    # Search for the event
     service = get_calendar_service()
     events_result = service.events().list(
         calendarId='primary',

@@ -32,3 +32,6 @@ backend/.env*
 .vscode/
 .idea/
 Thumbs.db
+
+backend/credentials.json
+backend/token.json

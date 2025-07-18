@@ -12,20 +12,17 @@ from fastapi import UploadFile
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts import ChatPromptTemplate
 
-# === Init vector store and prompt ===
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 vector_store = InMemoryVectorStore(embeddings)
 prompt = hub.pull("rlm/rag-prompt")
 
-# === State ===
 class State(TypedDict):
     question: str
     context: List[Document]
     answer: str
 
-# === RAG steps ===
 def retrieve(state: State):
     retrieved_docs = vector_store.similarity_search(state["question"])
     return {"context": retrieved_docs}
@@ -44,35 +41,28 @@ def generate(state: State):
     response = llm.invoke(messages)
     return {"answer": response.content}
 
-# === Graph ===
 graph_builder = StateGraph(State).add_sequence([retrieve, generate])
 graph_builder.add_edge(START, "retrieve")
 graph = graph_builder.compile()
 
-# === File ingestion ===
 async def ingest_uploaded_file(file: UploadFile):
-    # Save file to disk temporarily
     file_path = f"./{file.filename}"
 
     with open(file_path, "wb") as f:
         f.write(await file.read())
 
-    # Load with PDF loader
     loader = PyPDFLoader(file_path)
     pages = loader.load()
 
     
     for page in pages:
-        print("PAGE", page.page_content)  # See what was extracted
+        print("PAGE", page.page_content)  
 
-    # Split into chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(pages)
 
-    # Add to vector store
     vector_store.add_documents(splits)
 
-    # Optional: clean up the saved file
     os.remove(file_path)
 
     return f"Loaded {len(splits)} document chunks from {file.filename}"

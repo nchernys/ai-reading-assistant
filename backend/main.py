@@ -28,7 +28,6 @@ GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 def extract_text_from_pdf(file_bytes: bytes) -> str:
     with fitz.open(stream=file_bytes, filetype="pdf") as doc:
         text = ""
-        print("HIT PDF")
         for page in doc:
             text += page.get_text()
     return text
@@ -98,7 +97,6 @@ async def calender_agent(question: str = Body(..., embed=True)):
     prompt = f"Question: {question}. Additional information: timezone: {timezone}, the current date: {current_date}."
     
     try:
-        # Let the agent process the user question and invoke the appropriate tool
         result = agent.invoke(prompt)
         return {"response": result}
     except Exception as e:
