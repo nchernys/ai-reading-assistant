@@ -68,4 +68,3 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 [![Textify! AI Summarizer](./demo-preview.png)](https://www.loom.com/share/8fd1cf3eb93f4627a2c95984a55c0d8d?sid=800b2159-dd4c-4c7f-9b09-af700ac7feb8)
 
 [![Google Calendar Assistant](./demo-preview-2.png)](https://www.loom.com/share/3cb126567cd44756aea6308f12f95e83?sid=5a100a42-6983-413c-b15e-6ed8dab4cf85)
-
