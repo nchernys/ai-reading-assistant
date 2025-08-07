@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+
+config.autoAddCss = false;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Textify! AI-Powered PDF Summarizer & Quiz Generator",
+  title: "AI-Powered PDF Summarizer, Quiz Generator, Google Calendar Assistant",
   description:
-    "AI-Powered PDF Summarizer & Quiz Generator by Natalia Chernysheva",
+    "AI-Powered PDF Summarizer, Quiz Generator, Google Calendar Assistant",
 };
 
 export default function RootLayout({

@@ -9,8 +9,12 @@ export default function Navigation() {
 
   const tabs = [
     {
-      tabName: "TEXTIFY",
+      tabName: "SUMMARIZE",
       tabLink: "/",
+    },
+    {
+      tabName: "FLASH CARDS",
+      tabLink: "/flash-cards",
     },
     {
       tabName: "SCHEDULE",

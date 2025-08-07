@@ -80,7 +80,6 @@ def extract_event_title(input_text: str) -> str:
         content = getattr(response, "content", "").strip().strip('"')
         return content if content else "Meeting"
     except Exception as e:
-        print(f"[Title Extraction Error] {e}")
         return "Meeting"
 
 def get_calendar_events(input: str):
@@ -171,7 +170,6 @@ def is_slot_available(input: str) -> str:
         if not events:
             return f"You are available at {start_dt.strftime('%I:%M %p')} ({timezone})."
         else:
-            print(events)
             return f"You are NOT available at {start_dt.strftime('%I:%M %p')} ({timezone}). {len(events)} event(s) found. Scheduling conflict with the event: {events[0].get('summary')}. The event starts at {events[0].get('start')} and ends at {events[0].get('end')}"
     except Exception as e:
         return f"Calendar error: {e}"
