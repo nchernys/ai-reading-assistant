@@ -34,7 +34,7 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 - Scheduling meetings with time zone, attendees, location, and conferencing details
 - Deleting meetings based on time and title
 
-**Technologies:**
+## Technologies:
 
 - Frontend: Next.js
 - Backend: FastAPI
