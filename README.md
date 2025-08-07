@@ -43,7 +43,7 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 - Calendar access: `Google Calendar API`
 - Agent orchestration: `LangChain`
 - Auth: OAuth 2 with `credentials.json` and `token.json`
-- SQLite Database (Local)
+- Database: SQLite
 
 ## Demo Videos
 
