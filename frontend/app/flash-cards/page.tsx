@@ -131,7 +131,7 @@ export default function Schedule() {
         )}
 
         <h1 className="text-6xl font-bold mb-16 w-full relative">
-          Create Quiz Flash Cards
+          Create Quiz Flashcards
         </h1>
 
         <form

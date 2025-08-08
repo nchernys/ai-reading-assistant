@@ -36,14 +36,14 @@ An intelligent scheduling agent that connects to your **Google Calendar** and su
 
 ## Technologies:
 
-- Frontend: Next.js
-- Backend: FastAPI
-- AI: Gemini 2.0 Flash
+- Frontend: `Next.js`
+- Backend: `FastAPI`
+- AI: `Gemini 2.0 Flash`
 - Text parsing: `PyMuPDF`
 - Calendar access: `Google Calendar API`
 - Agent orchestration: `LangChain`
 - Auth: OAuth 2 with `credentials.json` and `token.json`
-- Database: SQLite
+- Database: `SQLite`
 
 ## Demo Videos
 
