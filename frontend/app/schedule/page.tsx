@@ -48,13 +48,8 @@ export default function Schedule() {
     <div className="w-full flex">
       <Navigation />
       <div className="w-1/2 p-8 mx-auto">
-        <h1 className="text-2xl font-bold mb-8 w-full h-22 relative">
-          <Image
-            src="/calendar-assistant2.svg"
-            alt="Google AI Assistant"
-            fill
-            className="object-contain object-center"
-          />
+        <h1 className="mb-8 w-full py-4 text-4xl font-bold relative">
+          AI-Assistant for Google Calendar
         </h1>
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
           <textarea

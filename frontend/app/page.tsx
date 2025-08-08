@@ -83,13 +83,8 @@ export default function Home() {
       <Navigation />
       <div className="w-full h-full p-8 ps-16 pt-12 box-border">
         <div className="w-9/12 mx-auto">
-          <h1 className="w-2/3 h-[5rem] align-left relative mb-8">
-            <Image
-              src="/textify-logo2.svg"
-              fill
-              className="object-contain object-left"
-              alt="Textify"
-            />
+          <h1 className="w-2/3 h-[5rem] text-5xl font-bold align-left relative mb-8">
+            AI Summarize &bull; Clarify &bull; Quiz
           </h1>
         </div>
         <div className="flex flex-col md:flex-row w-full md:w-9/12 items-start justify-start gap-8 h-[32rem] mx-auto">
