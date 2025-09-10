@@ -9,7 +9,7 @@ export default function Navigation() {
 
   const tabs = [
     {
-      tabName: "SUMMARIZE",
+      tabName: "SUMMARIZE!",
       tabLink: "/",
     },
     {
